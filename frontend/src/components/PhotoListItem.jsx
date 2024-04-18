@@ -15,7 +15,7 @@ const PhotoListItem = (props) => {
       <div className="photo-list__user-location">
         <p>Location: {props.photo.location.city}, {props.photo.location.country}</p>
       </div>
-      <img src={props.photo.imageSource} alt="Scenic view in Montreal" className="photo-list__image" />
+      <img src={props.photo.imageSource} className="photo-list__image" />
       <PhotoFavButton />
     </div>
   );
