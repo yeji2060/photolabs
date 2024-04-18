@@ -1,4 +1,5 @@
 import React from "react";
+import PhotoFavButton from './PhotoFavButton'; 
 
 import "../styles/PhotoListItem.scss";
 
@@ -15,6 +16,7 @@ const PhotoListItem = (props) => {
         <p>Location: {props.photo.location.city}, {props.photo.location.country}</p>
       </div>
       <img src={props.photo.imageSource} alt="Scenic view in Montreal" className="photo-list__image" />
+      <PhotoFavButton />
     </div>
   );
 };
