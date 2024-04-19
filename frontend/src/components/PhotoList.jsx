@@ -1,15 +1,15 @@
 import React from "react";
 import PhotoListItem from "./PhotoListItem";
-import photos from "mocks/photos";
+
 
 
 import "../styles/PhotoList.scss";
 
 
-const PhotoList = () => {
+const PhotoList = (props) => {
   return (
     <ul className="photo-list">
-      {photos.map(photo => (
+      {props.map(photo => (
         <li key={photo.id}>
           <PhotoListItem photo={{
             username: photo.user.username,
