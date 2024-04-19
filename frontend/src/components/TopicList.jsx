@@ -9,7 +9,7 @@ import "../styles/TopicList.scss";
 const TopicList = (props) => {
   return (
     <div className="top-nav-bar__topic-list">
-      {props.map(topic => (
+      {props.topics.map(topic => (
         <li key={topic.id}>
           <TopicListItem topic={{
             id: topic.id,

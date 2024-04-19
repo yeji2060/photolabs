@@ -9,7 +9,7 @@ import "../styles/PhotoList.scss";
 const PhotoList = (props) => {
   return (
     <ul className="photo-list">
-      {props.map(photo => (
+      {props.photos.map(photo => (
         <li key={photo.id}>
           <PhotoListItem photo={{
             username: photo.user.username,
