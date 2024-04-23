@@ -4,12 +4,12 @@ import PhotoFavButton from './PhotoFavButton';
 import "../styles/PhotoListItem.scss";
 
 
-const PhotoListItem = ({photo, toggleFavorite, isFavorite}) => {
+const PhotoListItem = ({photo, toggleFavorite, isFavorite, onPhotoClick}) => {
 
 
   return (
     // Add the specific class name to ensure styles are applied
-    <div className="photo-list__item">
+    <div className="photo-list__item" onClick={onPhotoClick}>
       <h2>{photo.username}</h2>
       {/* Apply the user profile and image styles */}
       <img src={photo.profile} alt="Profile" className="photo-list__user-profile" />
