@@ -31,7 +31,7 @@ const HomeRoute = (props) => {
     <div className="home-route">
     <TopNavigation topics={props.topics} favoriteCount={favoritePhotos.size}/>
     <PhotoList photos={props.photos} toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos} onPhotoClick={toggleModal}/>
-    {isModalOpen && <PhotoDetailsModal />}
+    {isModalOpen && <PhotoDetailsModal onClose={toggleModal} />}
 
     </div>
   );
