@@ -4,19 +4,20 @@ import PhotoFavButton from './PhotoFavButton';
 import "../styles/PhotoListItem.scss";
 
 
+const PhotoListItem = ({photo, toggleFavorite, isFavorite}) => {
 
-const PhotoListItem = (props) => {
+
   return (
     // Add the specific class name to ensure styles are applied
     <div className="photo-list__item">
-      <h2>{props.photo.username}</h2>
+      <h2>{photo.username}</h2>
       {/* Apply the user profile and image styles */}
-      <img src={props.photo.profile} alt="Profile" className="photo-list__user-profile" />
+      <img src={photo.profile} alt="Profile" className="photo-list__user-profile" />
       <div className="photo-list__user-location">
-        <p>Location: {props.photo.location.city}, {props.photo.location.country}</p>
+        <p>Location: {photo.location.city}, {photo.location.country}</p>
       </div>
-      <img src={props.photo.imageSource} className="photo-list__image" />
-      <PhotoFavButton />
+      <img src={photo.imageSource} className="photo-list__image" />
+      <PhotoFavButton isActive={isFavorite} toggleFavorite={() => toggleFavorite(photo.id)}/>
     </div>
   );
 };
