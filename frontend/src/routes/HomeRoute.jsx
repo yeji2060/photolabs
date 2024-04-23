@@ -10,6 +10,7 @@ const HomeRoute = (props) => {
    // State to track if the photo is favorited or not
    const [favoritePhotos, setFavoritePhotos] = useState(new Set());
    const [isModalOpen, setModalOpen] = useState(false);
+   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
    const toggleFavorite = photoId => {
     setFavoritePhotos(prev => {
@@ -27,12 +28,16 @@ const HomeRoute = (props) => {
     setModalOpen(prev => !prev);
   };
 
+  const onPhotoClick = photoDetails => {
+    setSelectedPhoto(photoDetails); // Set the selected photo details
+    toggleModal(); // Open the modal
+  };
+
   return (
     <div className="home-route">
-    <TopNavigation topics={props.topics} favoriteCount={favoritePhotos.size}/>
-    <PhotoList photos={props.photos} toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos} onPhotoClick={toggleModal}/>
-    {isModalOpen && <PhotoDetailsModal onClose={toggleModal} />}
-
+      <TopNavigation topics={props.topics} favoriteCount={favoritePhotos.size}/>
+      <PhotoList photos={props.photos} toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos} onPhotoClick={onPhotoClick}/>
+      {isModalOpen && <PhotoDetailsModal onClose={toggleModal} photo={selectedPhoto} />}
     </div>
   );
 };
