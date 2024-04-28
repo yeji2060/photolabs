@@ -5,9 +5,7 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoListItem from 'components/PhotoListItem';
 
 const PhotoDetailsModal = ({ onClose, photo, toggleFavorite, favoritePhotos }) => {
-  React.useEffect(() => {
-    console.log('Selected Photo Details:', photo); // Log photo details when the modal is opened and the photo prop changes
-  }, [photo]);
+  React.useEffect(() => {}, [photo]);
 
   //In order to use map, convert object to array
   const similar_photos = photo.similar_photos ? Object.values(photo.similar_photos) : [];
@@ -29,10 +27,11 @@ const PhotoDetailsModal = ({ onClose, photo, toggleFavorite, favoritePhotos }) =
         }}
           toggleFavorite={toggleFavorite}
           isFavorite={favoritePhotos.has(photo.id)}
-          onPhotoClick={() => onPhotoClick(photo)}
+
         />
       </div>
       <div className="similar-photos">
+      <h2>Similar Photos</h2>
         {similar_photos.map(photo => (
           <li key={photo.id}>
             <PhotoListItem photo={{
