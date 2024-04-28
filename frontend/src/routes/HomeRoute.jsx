@@ -33,11 +33,12 @@ const HomeRoute = (props) => {
     toggleModal(); // Open the modal
   };
 
+
   return (
     <div className="home-route">
       <TopNavigation topics={props.topics} favoriteCount={favoritePhotos.size}/>
       <PhotoList photos={props.photos} toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos} onPhotoClick={onPhotoClick}/>
-      {isModalOpen && <PhotoDetailsModal onClose={toggleModal} photo={selectedPhoto} />}
+      {isModalOpen && <PhotoDetailsModal onClose={toggleModal} photo={selectedPhoto} toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos}/>}
     </div>
   );
 };

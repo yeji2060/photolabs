@@ -13,6 +13,7 @@ const PhotoList = ({photos, toggleFavorite, favoritePhotos, onPhotoClick}) => {
           <PhotoListItem photo={{
             id: photo.id,
             username: photo.user.username,
+            name: photo.user.name,
             profile: photo.user.profile,
             location: photo.location,
             imageSource: photo.urls.regular
@@ -20,6 +21,7 @@ const PhotoList = ({photos, toggleFavorite, favoritePhotos, onPhotoClick}) => {
           toggleFavorite={toggleFavorite}
           isFavorite={favoritePhotos.has(photo.id)}
           onPhotoClick={() => onPhotoClick(photo)}
+        
           />
           
         </li>
