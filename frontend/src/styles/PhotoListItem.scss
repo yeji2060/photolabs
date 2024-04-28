@@ -27,16 +27,21 @@
   object-fit: cover;
   border-radius: 100%;
   vertical-align: middle;
-  margin-right: 8px;
+  margin-left:15px;
+  margin-right: 20px;
   width: 40px;
   height: 40px;
 }
 
 .photo-list__user-details {
   display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .photo-list__user-info {
+  display:flex;
+  flex-direction: column;
   margin-top: 5px;
   font-weight: 700;
   font-size: 12px;
