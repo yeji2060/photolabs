@@ -1,45 +1,68 @@
 
-import { useState, useCallback } from 'react';
+import { useReducer } from 'react';
 
-const useApplicationData = () => {
-  const [state, setState] = useState({
-    favoritePhotos: new Set(),
-    isModalOpen: false,
-    selectedPhoto: null,
-  });
+// Define your initial state here
+const initialState = {
+  favoritePhotos: new Set(),
+  isModalOpen: false,
+  selectedPhoto: null,
+};
 
-  const updateToFavPhotoIds = useCallback((photoId) => {
-    setState((prevState) => {
-      const newFavs = new Set(prevState.favoritePhotos);
-      if (newFavs.has(photoId)) {
-        newFavs.delete(photoId);
+// Define the action types as constants
+const actionTypes = {
+  TOGGLE_FAVORITE: 'TOGGLE_FAVORITE',
+  SET_PHOTO_SELECTED: 'SET_PHOTO_SELECTED',
+  CLOSE_MODAL: 'CLOSE_MODAL'
+};
+
+// Define the reducer function
+const applicationReducer = (state, action) => {
+  switch (action.type) {
+    case actionTypes.TOGGLE_FAVORITE:
+      const newFavs = new Set(state.favoritePhotos);
+      if (newFavs.has(action.payload)) {
+        newFavs.delete(action.payload);
       } else {
-        newFavs.add(photoId);
+        newFavs.add(action.payload);
       }
-      return { ...prevState, favoritePhotos: newFavs };
-    });
-  }, []);
+      return { ...state, favoritePhotos: newFavs };
 
-  const setPhotoSelected = useCallback((photoDetails) => {
-    setState((prevState) => ({
-      ...prevState,
-      selectedPhoto: photoDetails,
-      isModalOpen: true,
-    }));
-  }, []);
+    case actionTypes.SET_PHOTO_SELECTED:
+      return { ...state, selectedPhoto: action.payload, isModalOpen: true };
 
-  const onClosePhotoDetailsModal = useCallback(() => {
-    setState((prevState) => ({
-      ...prevState,
-      isModalOpen: false,
-    }));
-  }, []);
+    case actionTypes.CLOSE_MODAL:
+      return { ...state, isModalOpen: false };
 
+
+    default:
+      throw new Error(`Unhandled action type: ${action.type}`);
+  }
+};
+
+// Define the custom hook that uses the reducer
+const useApplicationData = () => {
+  const [state, dispatch] = useReducer(applicationReducer, initialState);
+
+  const updateToFavPhotoIds = (photoId) => {
+    dispatch({ type: actionTypes.TOGGLE_FAVORITE, payload: photoId });
+  };
+
+  const setPhotoSelected = (photoDetails) => {
+    dispatch({ type: actionTypes.SET_PHOTO_SELECTED, payload: photoDetails });
+  };
+
+  const onClosePhotoDetailsModal = () => {
+    dispatch({ type: actionTypes.CLOSE_MODAL });
+  };
+
+
+  // The hook returns the state and the action dispatchers
   return {
-    state, // The state object contains all your application state
-    updateToFavPhotoIds, // Function to update favorite photos
-    setPhotoSelected, // Function to set the selected photo
-    onClosePhotoDetailsModal, // Function to close the photo details modal
+    state,
+    updateToFavPhotoIds,
+    setPhotoSelected,
+    onClosePhotoDetailsModal,
+
   };
 };
 
