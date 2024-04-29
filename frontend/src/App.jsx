@@ -1,4 +1,5 @@
 import React from 'react';
+
 import useApplicationData from 'hooks/useApplicationData';
 import HomeRoute from 'routes/HomeRoute';
 

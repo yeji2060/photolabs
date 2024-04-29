@@ -78,13 +78,31 @@ const useApplicationData = () => {
     dispatch({ type: actionTypes.CLOSE_MODAL });
   };
 
+  const fetchPhotosByTopic = (topicId) => {
+    fetch(`http://localhost:8001/api/topics/photos/${topicId}`)
+      .then(response => {
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+
+        dispatch({ type: actionTypes.SET_PHOTO_DATA, payload: data });
+      })
+      .catch(error => console.error('Error fetching photos by topic:', error));
+  };
+  
+
 
   // The hook returns the state and the action dispatchers
   return {
     state,
     updateToFavPhotoIds,
     setPhotoSelected,
-    onClosePhotoDetailsModal
+    onClosePhotoDetailsModal,
+    fetchPhotosByTopic
   };
 };
 

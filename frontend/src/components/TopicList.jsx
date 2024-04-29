@@ -5,21 +5,21 @@ import TopicListItem from "./TopicListItem";
 import "../styles/TopicList.scss";
 
 
-
-const TopicList = (props) => {
+const TopicList = ({ topics, onTopicClick }) => {
   return (
     <div className="top-nav-bar__topic-list">
-      {props.topics.map(topic => (
+      {topics.map(topic => (
         <li key={topic.id}>
-          <TopicListItem topic={{
-            id: topic.id,
-            slug: topic.slug,
-            title: topic.title
+          <TopicListItem topic={topic} onClick={() => {
+            onTopicClick(topic.id);
           }} />
         </li>
       ))}
     </div>
   );
+
+
 };
+
 
 export default TopicList;
