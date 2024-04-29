@@ -1,16 +1,33 @@
 import React from 'react';
-import photos from 'mocks/photos';
-import topics from 'mocks/topics';
-
-import './App.scss';
+import useApplicationData from 'hooks/useApplicationData';
 import HomeRoute from 'routes/HomeRoute';
 
+import './App.scss';
 
- const App = () => (
-  
-   <div className="App">
-   <HomeRoute photos={photos} topics={topics}/>
-   </div>
- )
+
+
+const App = () => {
+  const {
+    state,
+    updateToFavPhotoIds,
+    setPhotoSelected,
+    onClosePhotoDetailsModal
+  } = useApplicationData();
+
+  return (
+    <div className="App">
+      <HomeRoute
+        photos={state.photoData} 
+        topics={state.topicData} 
+        toggleFavorite={updateToFavPhotoIds}
+        favoritePhotos={state.favoritePhotos}
+        onPhotoClick={setPhotoSelected}
+        isModalOpen={state.isModalOpen}
+        selectedPhoto={state.selectedPhoto}
+        onCloseModal={onClosePhotoDetailsModal}
+      />
+    </div>
+  );
+}
 
 export default App;
