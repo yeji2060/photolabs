@@ -3,5 +3,17 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-right: 24px;
+
+  list-style-type: none; /* Removes the default bullet points */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+}
+
+
+
+li {
+  display: flex; /* Make li a flex container */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  list-style-type: none; /* Remove any markers */
 }

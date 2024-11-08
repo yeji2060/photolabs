@@ -1,9 +1,6 @@
 import React from "react";
 import TopicListItem from "./TopicListItem";
-
-
 import "../styles/TopicList.scss";
-
 
 const TopicList = ({ topics, onTopicClick }) => {
   return (
@@ -17,9 +14,6 @@ const TopicList = ({ topics, onTopicClick }) => {
       ))}
     </div>
   );
-
-
 };
-
 
 export default TopicList;

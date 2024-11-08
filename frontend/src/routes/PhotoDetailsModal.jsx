@@ -1,8 +1,6 @@
 import React from 'react';
-
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
-
 import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = ({ onClose, photo, toggleFavorite, favoritePhotos }) => {
@@ -11,17 +9,16 @@ const PhotoDetailsModal = ({ onClose, photo, toggleFavorite, favoritePhotos }) =
   //In order to use map, convert object to array
   const similar_photos = photo.similar_photos ? Object.values(photo.similar_photos) : [];
 
-
   return (
     <div className="photo-details-modal">
+
       <button className="photo-details-modal__close-button" onClick={onClose}>
         <img src={closeSymbol} alt="Close symbol" />
       </button>
 
       <div className="photo-details-modal__images">
-        <PhotoFavButton isActive={favoritePhotos.has(photo.id)} toggleFavorite={() => toggleFavorite(photo.id)} />
-        <img src={photo.urls.full} className="photo-details-modal__image" />
-        <div className="photo-details-modal__photographer-details">
+
+      <div className="photo-details-modal__photographer-details">
           <img src={photo.user.profile} alt="Profile" className="photo-details-modal__photographer-profile" />
           <div className="photo-details-modal__photographer-info">
             <p><strong>{photo.user.name}</strong></p>
@@ -30,7 +27,11 @@ const PhotoDetailsModal = ({ onClose, photo, toggleFavorite, favoritePhotos }) =
             </div>
           </div>
         </div>
+        
+        <PhotoFavButton isActive={favoritePhotos.has(photo.id)} toggleFavorite={() => toggleFavorite(photo.id)} />
+        <img src={photo.urls.full} className="photo-details-modal__image" />
 
+        
 
         <div className="similar-photos">
           <h2>Related Photos</h2>
@@ -49,11 +50,9 @@ const PhotoDetailsModal = ({ onClose, photo, toggleFavorite, favoritePhotos }) =
               </div>
             </li>
           ))}
-
-
         </div>
-      </div>
 
+      </div>
 
     </div>
   );
