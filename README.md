@@ -1,7 +1,9 @@
-# react-photolabs
-The PhotoLabs project for the Web Development React course programming.
-
 # Photolabs
+
+PhotoLabs is a React-based single-page application (SPA) designed to provide users with a seamless experience for viewing stock photos in different contexts. It allows users to browse, explore, and interact with photos in an organized and intuitive manner.
+
+This project is built in four key phases, each focusing on progressively implementing React concepts and integrating API data.
+
 
 ## Setup
 
@@ -23,30 +25,67 @@ cd backend
 npm start
 ```
 
+## Technologies Used
+
+- **Frontend**: React, Create React App (CRA), SCSS
+- **Backend**: Express (for the API server)
+- **State Management**: React Context API, useState, useReducer
+- **API**: Custom API for fetching photo data (RESTful)
+
+
+## Features
+
+- **Browse Photos**: View high-quality stock photos from various categories.
+- **Favorite Photos**: Mark photos as favorites for easy access later.
+- **Photographer Info**: Display details about the photographer, including name and location.
+- **Similar Photos**: View related photos based on a selected image.
+- **Responsive Design**: Fully responsive layout for various screen sizes.
+
+
+
 ## Guide for Photolabs Website
 
-User will see the all the photos with the profile picture and the information at first.
+Upon loading the PhotoLabs website, users will see a gallery of photos along with profile pictures and other information. Below is a brief walkthrough of the main screens and features.
 
-![nature Image](image_nature.png "nature Image")
+<br><br>
+### Photo Gallery & Photo Categories
+The homepage displays all photos along with the photographer’s profile picture and details.
 
+Users can browse photos by selecting topics or categories, making it easy to explore themed content.
 
+![browsing with topic list](topicList.gif)
 
-There are some topics of the pictures that user can choose. 
-![people Image](image_people.png "people Image")
+<br><br>
+### Photo Details Modal
+Clicking on a photo opens a modal displaying a full-size version, along with other related photos below it.
 
+![modal image](modalPage.gif)
 
-
-
-When user click the picture, a modal will pop up and show a full size of picutre with other related pictures below.
-
-![modal Image](image_modal.png "modal Image")
-
-
-
-
+<br><br>
+### Favorite Button
 Each photo have the favourite button on the left top side, and it will be notified with right top favourite button whenever the user click the favourite button. 
 
-![fav Image](image_fav.png "fav Image")
+![fav button](favButton.gif)
+
+<br><br>
+
+## Phases of Development
+
+The project is built in four main phases:
+
+- **Component Isolation**: Build the smallest reusable components first (e.g., buttons, list items) and progress up to more complex components.
+- **State Management**: Utilize React's useState and useReducer hooks for managing state within components.
+- **API Integration**: Fetch and display data from the custom API, including photos and photographer information.
+- **Advanced React Patterns**: Implement advanced patterns to handle state efficiently and add live updates as the application changes.
+
+
+## Future Enhancements
+
+- **User Authentication**: Allow users to create accounts, save favorites, and upload photos.
+- **Search Functionality**: Add a search bar to allow users to filter photos by keywords.
+- **Photo Categorization**: Tag and categorize photos for easier browsing.
+- **Photo Editing**: Enable users to apply filters and edit photos within the app.
+
 
 
 

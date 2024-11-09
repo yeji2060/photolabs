@@ -49,6 +49,7 @@
   display: flex;
   font-size: 16px;
   margin-top: 20px;
+  margin-bottom: 20px;
 
 }
 
@@ -64,6 +65,7 @@
 
 .photo-details-modal__photographer-name {
   height: 20px;
+  font-size: medium;
 
 }
 
@@ -72,6 +74,7 @@
   max-width: 350px; /* Adjust width as needed */
   white-space: nowrap; /* Prevent wrapping */
   color: #838383;
+  font-size: medium;
 
 }
 
@@ -92,15 +95,20 @@
   font-weight: 700;
   font-size: 12px;
   margin-left: 8px;
+
 }
 
 
 .similar-photos {
   margin-top: 10px;
   padding-right: 50px;
+  
 
   h2 {
-    margin-bottom: 16px; /* Spacing for the header */
+    margin-top: 40px;
+    margin-bottom: 16px;
+    margin-left: 10px;
+    font-size:xx-large;
   }
 
   /* Display related photos in a column layout */
@@ -111,10 +119,10 @@
   li {
     list-style: none;
     display: flex;
-    justify-content: flex-start;
     align-items: center; /* Vertically align the photo and details */
     gap: 16px; /* Space between the photo and photographer details */
-    margin-left: 70px;
+
+    justify-content: space-evenly;
   }
 }
 
