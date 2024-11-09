@@ -17,37 +17,42 @@ const PhotoDetailsModal = ({ onClose, photo, toggleFavorite, favoritePhotos }) =
       </button>
 
       <div className="photo-details-modal__images">
-
-      <div className="photo-details-modal__photographer-details">
+        <div className="photo-details-modal__photographer-details">
           <img src={photo.user.profile} alt="Profile" className="photo-details-modal__photographer-profile" />
           <div className="photo-details-modal__photographer-info">
-            <p><strong>{photo.user.name}</strong></p>
+            <div className="photo-details-modal__photographer-name">
+              <p><strong>{photo.user.name}</strong></p>
+            </div>
             <div className="photo-details-modal__photographer-location">
               <p>Location: {photo.location.city}, {photo.location.country}</p>
             </div>
           </div>
         </div>
-        
+
         <PhotoFavButton isActive={favoritePhotos.has(photo.id)} toggleFavorite={() => toggleFavorite(photo.id)} />
         <img src={photo.urls.full} className="photo-details-modal__image" />
-
-        
 
         <div className="similar-photos">
           <h2>Related Photos</h2>
           {similar_photos.map(photo => (
             <li key={photo.id}>
-              <PhotoFavButton isActive={favoritePhotos.has(photo.id)} toggleFavorite={() => toggleFavorite(photo.id)} />
-              <img src={photo.urls.regular} className="photo-details-modal__image" />
+              <div className="photo-details-modal__image-container">
+                <PhotoFavButton isActive={favoritePhotos.has(photo.id)} toggleFavorite={() => toggleFavorite(photo.id)} />
+                <img src={photo.urls.regular} className="photo-details-modal__image" alt="Main Photo" />
+              </div>
               <div className="photo-details-modal__photographer-details">
                 <img src={photo.user.profile} alt="Profile" className="photo-details-modal__photographer-profile" />
                 <div className="photo-details-modal__photographer-info">
-                  <p><strong>{photo.user.name}</strong></p>
+                  <div className="photo-details-modal__photographer-name">
+                    <p><strong>{photo.user.name}</strong></p>
+                  </div>
                   <div className="photo-details-modal__photographer-location">
                     <p>Location: {photo.location.city}, {photo.location.country}</p>
                   </div>
                 </div>
               </div>
+
+
             </li>
           ))}
         </div>

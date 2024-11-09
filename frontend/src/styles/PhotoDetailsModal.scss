@@ -44,10 +44,12 @@
 }
 
 
+
 .photo-details-modal__photographer-details {
   display: flex;
   font-size: 16px;
   margin-top: 20px;
+
 }
 
 .photo-details-modal__header {
@@ -59,9 +61,22 @@
   width: 90%;
 }
 
-.photo-details-modal__photographer-location {
-  color: #838383;
+
+.photo-details-modal__photographer-name {
+  height: 20px;
+
 }
+
+
+.photo-details-modal__photographer-location {
+  max-width: 350px; /* Adjust width as needed */
+  white-space: nowrap; /* Prevent wrapping */
+  color: #838383;
+
+}
+
+
+
 .photo-details-modal__photographer-profile {
   object-fit: cover;
   border-radius: 100%;
@@ -72,8 +87,66 @@
 }
 
 .photo-details-modal__photographer-info {
-  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
   font-weight: 700;
   font-size: 12px;
   margin-left: 8px;
 }
+
+
+.similar-photos {
+  margin-top: 10px;
+  padding-right: 50px;
+
+  h2 {
+    margin-bottom: 16px; /* Spacing for the header */
+  }
+
+  /* Display related photos in a column layout */
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Space between each related photo item */
+  
+  li {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; /* Vertically align the photo and details */
+    gap: 16px; /* Space between the photo and photographer details */
+    margin-left: 70px;
+  }
+}
+
+.photo-details-modal__photographer-details {
+  display: flex;
+  align-items: center; /* Ensure items are vertically centered */
+  font-size: 16px;
+  margin-top: 20px;
+  margin-left:20px;
+}
+
+.photo-details-modal__photographer-info {
+  margin-top: 0; /* Remove top margin for better alignment */
+  font-weight: 700;
+  font-size: 12px;
+ 
+}
+
+.photo-details-modal__image {
+  max-width: 95%;
+  border-radius: 8px;
+}
+
+/* Styling for the related photo images */
+.similar-photos .photo-details-modal__image {
+  max-width: 300px;
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px;
+}
+.photo-details-modal__image-container {
+  position: relative; /* Makes the container the reference point for absolute positioning */
+  display: inline-block; /* Ensures the image fits within the container */
+}
+
+
