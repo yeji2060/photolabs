@@ -78,6 +78,7 @@ The project is built in four main phases:
 - **API Integration**: Fetch and display data from the custom API, including photos and photographer information.
 - **Advanced React Patterns**: Implement advanced patterns to handle state efficiently and add live updates as the application changes.
 
+<br> </br>
 
 ## Future Enhancements
 
